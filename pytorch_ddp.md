@@ -15,6 +15,10 @@ parser.add_argument("--local_rank", default=0)
 FLAGS = parser.parse_args()
 local_rank = int(FLAGS.local_rank)
 ```
+同步bn
+```
+net = torch.nn.SyncBatchNorm.convert_sync_batchnorm(net)
+```
 初始化
 ```
 def init_ddp():
