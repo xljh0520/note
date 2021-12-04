@@ -1,3 +1,4 @@
+## pytorch自带混合精度
 要求 torch>=1.6
 ```
 from torch.cuda.amp import autocast, GradScaler
