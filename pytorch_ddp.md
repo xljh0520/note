@@ -6,7 +6,22 @@ import torch.distributed as dist
 from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.utils.data.distributed import DistributedSampler
 ```
-
+固定seed
+```
+def setup_seed(seed=2022):
+    os.environ['PYTHONHASHSEED'] = str(seed)
+    
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    
+    np.random.seed(seed)
+    random.seed(seed)
+    
+    torch.backends.cudnn.deterministic = True  
+    torch.backends.cudnn.benchmark = False  
+    torch.backends.cudnn.enabled = False
+```
 local_rank 设置
 ```
 import argparse
