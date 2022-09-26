@@ -18,9 +18,9 @@ def setup_seed(seed=2022):
     np.random.seed(seed)
     random.seed(seed)
     
-    torch.backends.cudnn.deterministic = True  
-    torch.backends.cudnn.benchmark = False  
-    torch.backends.cudnn.enabled = False
+    torch.backends.cudnn.deterministic = False  
+    torch.backends.cudnn.benchmark = True
+    torch.backends.cudnn.enabled = True
 ```
 local_rank 设置
 ```
